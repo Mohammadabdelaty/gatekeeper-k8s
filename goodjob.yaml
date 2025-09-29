@@ -10,7 +10,7 @@ spec:
         fsGroup: 7000
       containers:
       - name: test
-        image: docker.aic.gov.eg/dockerhub-cache/library/alpine:3.18
+        image: harbor.local/dockerhub-cache/library/alpine:3.18
         command: ["sleep", "infinity"] 
         securityContext:
           runAsNonRoot: true
