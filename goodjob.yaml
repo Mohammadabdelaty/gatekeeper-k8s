@@ -1,0 +1,19 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: job
+  namespace: test
+spec:
+  template:
+    spec:
+      securityContext:
+        fsGroup: 7000
+      containers:
+      - name: test
+        image: docker.aic.gov.eg/dockerhub-cache/library/alpine:3.18
+        command: ["sleep", "infinity"] 
+        securityContext:
+          runAsNonRoot: true
+          runAsUser: 7002
+          runAsGroup: 7000
+      restartPolicy: Never
